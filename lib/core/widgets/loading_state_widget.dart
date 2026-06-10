@@ -41,14 +41,14 @@ class _LoadingStateWidgetState extends State<LoadingStateWidget>
                   : 1.5 - _controller.value,
               child: Container(
                 margin: const EdgeInsets.only(bottom: 16),
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(24),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.04),
-                      blurRadius: 10,
+                      color: Colors.black.withOpacity(0.06),
+                      blurRadius: 12,
                       offset: const Offset(0, 4),
                     ),
                   ],
@@ -57,17 +57,17 @@ class _LoadingStateWidgetState extends State<LoadingStateWidget>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      width: 120,
-                      height: 24,
+                      width: 140,
+                      height: 28,
                       decoration: BoxDecoration(
                         color: Colors.grey.shade200,
-                        borderRadius: BorderRadius.circular(4),
+                        borderRadius: BorderRadius.circular(6),
                       ),
                     ),
+                    const SizedBox(height: 20),
+                    _buildSkeletonSection(),
                     const SizedBox(height: 16),
-                    _buildSkeletonRow(),
-                    const SizedBox(height: 8),
-                    _buildSkeletonRow(),
+                    _buildSkeletonSection(),
                   ],
                 ),
               ),
@@ -78,26 +78,26 @@ class _LoadingStateWidgetState extends State<LoadingStateWidget>
     );
   }
 
-  Widget _buildSkeletonRow() {
-    return Row(
+  Widget _buildSkeletonSection() {
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           width: 80,
-          height: 16,
+          height: 14,
           decoration: BoxDecoration(
             color: Colors.grey.shade200,
             borderRadius: BorderRadius.circular(4),
           ),
         ),
-        const SizedBox(width: 10),
-        Expanded(
-          child: Container(
-            height: 16,
-            decoration: BoxDecoration(
-              color: Colors.grey.shade200,
-              borderRadius: BorderRadius.circular(4),
-            ),
+        const SizedBox(height: 8),
+        Container(
+          width: double.infinity,
+          height: 20,
+          margin: const EdgeInsets.only(right: 48),
+          decoration: BoxDecoration(
+            color: Colors.grey.shade200,
+            borderRadius: BorderRadius.circular(6),
           ),
         ),
       ],

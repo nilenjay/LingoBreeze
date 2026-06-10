@@ -14,8 +14,9 @@ exports.addWord = async (req, res) => {
   try {
     const { word, meaning, translation } = req.body;
     
-    if (!word || !meaning || !translation) {
-      return res.status(400).json({ message: 'Missing required fields' });
+    if (!word || !meaning || !translation || 
+        word.trim() === '' || meaning.trim() === '' || translation.trim() === '') {
+      return res.status(400).json({ message: 'Missing or empty required fields' });
     }
 
     const newWord = await wordsService.addWord({ word, meaning, translation });

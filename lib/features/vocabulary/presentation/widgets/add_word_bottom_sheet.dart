@@ -44,7 +44,7 @@ class _AddWordBottomSheetState extends State<AddWordBottomSheet> {
           Navigator.of(context).pop();
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
-              content: Text('Word added successfully!'),
+              content: Text('Word added successfully'),
               backgroundColor: Colors.green,
             ),
           );
@@ -59,7 +59,7 @@ class _AddWordBottomSheetState extends State<AddWordBottomSheet> {
       },
       child: Padding(
         padding: EdgeInsets.only(
-          bottom: MediaQuery.of(context).viewInsets.bottom,
+          bottom: MediaQuery.of(context).viewInsets.bottom + 24,
           left: 24,
           right: 24,
           top: 24,
@@ -90,8 +90,9 @@ class _AddWordBottomSheetState extends State<AddWordBottomSheet> {
                 TextFormField(
                   controller: _wordController,
                   decoration: const InputDecoration(
-                    labelText: 'Word',
+                    labelText: 'Word *',
                     hintText: 'Enter word',
+                    border: OutlineInputBorder(),
                   ),
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
@@ -104,8 +105,9 @@ class _AddWordBottomSheetState extends State<AddWordBottomSheet> {
                 TextFormField(
                   controller: _meaningController,
                   decoration: const InputDecoration(
-                    labelText: 'Meaning',
+                    labelText: 'Meaning *',
                     hintText: 'Definition or context',
+                    border: OutlineInputBorder(),
                   ),
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
@@ -118,8 +120,9 @@ class _AddWordBottomSheetState extends State<AddWordBottomSheet> {
                 TextFormField(
                   controller: _translationController,
                   decoration: const InputDecoration(
-                    labelText: 'Translation',
+                    labelText: 'Translation *',
                     hintText: 'Target language equivalent',
+                    border: OutlineInputBorder(),
                   ),
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
@@ -143,7 +146,10 @@ class _AddWordBottomSheetState extends State<AddWordBottomSheet> {
                                 color: Colors.white,
                               ),
                             )
-                          : const Text('Save Word'),
+                          : const Text('Add Word'),
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                      ),
                     );
                   },
                 ),

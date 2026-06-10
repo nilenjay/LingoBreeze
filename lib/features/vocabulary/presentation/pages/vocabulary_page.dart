@@ -29,7 +29,9 @@ class VocabularyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Text('My Vocabulary'),
             BlocBuilder<VocabularyBloc, VocabularyState>(
@@ -46,6 +48,7 @@ class VocabularyPage extends StatelessWidget {
                     '$count saved word${count == 1 ? '' : 's'}',
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                           fontSize: 14,
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
                         ),
                   );
                 }
@@ -96,9 +99,10 @@ class VocabularyPage extends StatelessWidget {
           return const SizedBox.shrink();
         },
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () => _showAddWordSheet(context),
-        child: const Icon(Icons.add),
+        icon: const Icon(Icons.add),
+        label: const Text('Add Word'),
       ),
     );
   }
