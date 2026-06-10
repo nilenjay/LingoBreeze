@@ -11,12 +11,24 @@ LingoBreeze is a modern, responsive vocabulary management application built with
 - **Clean Architecture**: Separation of concerns on both the Flutter frontend and the Express/Node.js backend.
 - **Responsive UI**: Adapts smoothly to different screen sizes.
 
-## 3. Architecture
+## 3. Screenshots
+
+### Vocabulary List
+![Vocabulary List](screenshots/Words_state.png)
+
+### Add Word Bottom Sheet
+![Add Word Bottom Sheet](screenshots/Add_word.png)
+
+### Empty State
+![Empty State](screenshots/Empty_state.png)
+
+
+## 4. Architecture
 The project is divided into two main components:
 - **Frontend (Flutter)**: Implements Clean Architecture principles (Domain, Data, and Presentation layers) and utilizes the `flutter_bloc` package for state management.
 - **Backend (Node.js)**: A RESTful API built with Express, integrated with Firebase Admin SDK to interact with Firestore.
 
-## 4. Folder Structure
+## 5. Folder Structure
 ```text
 lingobreeze/
 ├── backend/                  # Node.js backend
@@ -39,21 +51,21 @@ lingobreeze/
 └── README.md                 # Project documentation
 ```
 
-## 5. Setup Instructions
+## 6. Setup Instructions
 
 ### Prerequisites
 - Flutter SDK (latest stable version)
 - Node.js (v18 or higher)
 - A Firebase project with Firestore enabled
 
-## 6. Firebase Setup
+## 7. Firebase Setup
 1. Go to the [Firebase Console](https://console.firebase.google.com/).
 2. Create a new project and enable **Firestore Database**.
 3. Generate a new private key from **Project Settings > Service Accounts**.
 4. Download the JSON file and rename it to `serviceAccountKey.json`.
 5. Place this file in the `lingobreeze/backend/` directory.
 
-## 7. Backend Setup
+## 8. Backend Setup
 1. Navigate to the backend directory:
    ```bash
    cd backend
@@ -68,7 +80,7 @@ lingobreeze/
    ```
    *The server will run on `http://localhost:3000` by default.*
 
-## 8. Running Flutter
+## 9. Running Flutter
 1. Navigate to the root directory:
    ```bash
    cd lingobreeze
@@ -83,7 +95,7 @@ lingobreeze/
    ```
    *Note: Ensure your emulator or physical device is connected. For Android emulators, `localhost` points to the host machine's `10.0.2.2`. Check `lib/core/network/api_client.dart` to adjust the `baseUrl` if necessary.*
 
-## 9. API Endpoints
+## 10. API Endpoints
 
 ### `GET /words`
 Retrieves all saved vocabulary words, sorted by newest first.
@@ -112,14 +124,21 @@ Adds a new word to the vocabulary list.
 - **Response (201 Created):** Returns the newly created word object.
 - **Response (400 Bad Request):** If any required fields are missing or empty.
 
-## 10. Screenshots
-*(Add screenshots here showing the Empty State, Loading State, Vocabulary List, and Add Word Bottom Sheet)*
-- `assets/screenshots/empty_state.png`
-- `assets/screenshots/list_view.png`
-- `assets/screenshots/add_word.png`
-
 ## 11. AI Contribution
 - **UI/UX Polish**: 90% (Material 3 styling, Extended FAB, State Widgets)
 - **Flutter Code Generation**: 70% (BLoC integration, Clean Architecture scaffold)
 - **Backend Setup**: 80% (Express endpoints, Firestore service)
 - **Architecture**: 50% (Refinement and separation of concerns)
+
+## 12. Verification Checklist
+- [x] Create Word
+- [x] Read Words
+- [x] Firebase Firestore Integration
+- [x] Node.js Backend
+- [x] Loading State
+- [x] Empty State
+- [x] Error State
+- [x] Pull To Refresh
+- [x] Material 3 UI
+- [x] Clean Architecture
+- [x] Bloc State Management
